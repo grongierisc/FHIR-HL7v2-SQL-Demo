@@ -33,6 +33,7 @@ XData ProductionDefinition
     <Setting Target="Host" Name="ResourceSchemaRoot">HS.FHIR.vSTU3.Model.Resource</Setting>
     <Setting Target="Host" Name="InactivityTimeout">0</Setting>
   </Item>
+  
   <Item Name="HS.FHIR.Repository.Operations.STU3" Category="Demo" ClassName="HS.FHIR.vSTU3.Repository.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
     <Setting Target="Host" Name="TraceOperations">*FULL*</Setting>

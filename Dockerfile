@@ -9,6 +9,8 @@ WORKDIR /home/irisowner/src
 
 COPY misc/iris.key /usr/irissys/mgr/iris.key
 
+RUN /usr/irissys/dev/Cloud/ICM/changePassword.sh /home/irisowner/src/misc/password.txt
+
 RUN iris start IRIS && sh install.sh IRIS
 
 RUN rm /usr/irissys/mgr/iris.key
