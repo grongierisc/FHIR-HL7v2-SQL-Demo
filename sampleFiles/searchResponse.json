@@ -1,0 +1,324 @@
+{
+    "resourceType": "Bundle",
+    "id": "cff93214-b75c-11e9-82e8-f01898723907",
+    "type": "searchset",
+    "total": 5,
+    "link": [
+        {
+            "relation": "self",
+            "url": "http://frmbpgrongier.local:52774/csp/healthshare/fhirmypl/fhir/stu3/Patient?_format=json&identifier=200000001"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "http://frmbpgrongier.local:52774/csp/healthshare/fhirmypl/fhir/stu3/Patient/1",
+            "resource": {
+                "resourceType": "Patient",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "display": "MR"
+                                }
+                            ],
+                            "text": "MR"
+                        },
+                        "system": "urn:oid:1.3.6.1.4.1.21367.2010.1.2.300.2.2",
+                        "value": "200000001"
+                    }
+                ],
+                "active": true,
+                "name": [
+                    {
+                        "use": "usual",
+                        "family": "Rongier",
+                        "given": [
+                            "Guillaume"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1984-08-06",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home"
+                    }
+                ],
+                "multipleBirthBoolean": false,
+                "communication": [
+                    {
+                        "language": {
+                            "coding": [
+                                {
+                                    "code": "en",
+                                    "display": "English"
+                                }
+                            ],
+                            "text": "English"
+                        },
+                        "preferred": true
+                    }
+                ],
+                "id": "1",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-08-05T08:27:42Z"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "http://frmbpgrongier.local:52774/csp/healthshare/fhirmypl/fhir/stu3/Patient/2",
+            "resource": {
+                "resourceType": "Patient",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "display": "MR"
+                                }
+                            ],
+                            "text": "MR"
+                        },
+                        "system": "urn:oid:1.3.6.1.4.1.21367.2010.1.2.300.2.2",
+                        "value": "200000001"
+                    }
+                ],
+                "active": true,
+                "name": [
+                    {
+                        "use": "usual",
+                        "family": "Rongier",
+                        "given": [
+                            "Guillaume"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1984-08-06",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home"
+                    }
+                ],
+                "multipleBirthBoolean": false,
+                "communication": [
+                    {
+                        "language": {
+                            "coding": [
+                                {
+                                    "code": "en",
+                                    "display": "English"
+                                }
+                            ],
+                            "text": "English"
+                        },
+                        "preferred": true
+                    }
+                ],
+                "id": "2",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-08-05T08:27:59Z"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "http://frmbpgrongier.local:52774/csp/healthshare/fhirmypl/fhir/stu3/Patient/3",
+            "resource": {
+                "resourceType": "Patient",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "display": "MR"
+                                }
+                            ],
+                            "text": "MR"
+                        },
+                        "system": "urn:oid:1.3.6.1.4.1.21367.2010.1.2.300.2.2",
+                        "value": "200000001"
+                    }
+                ],
+                "active": true,
+                "name": [
+                    {
+                        "use": "usual",
+                        "family": "Rongier",
+                        "given": [
+                            "Guillaume"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1984-08-06",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home"
+                    }
+                ],
+                "multipleBirthBoolean": false,
+                "communication": [
+                    {
+                        "language": {
+                            "coding": [
+                                {
+                                    "code": "en",
+                                    "display": "English"
+                                }
+                            ],
+                            "text": "English"
+                        },
+                        "preferred": true
+                    }
+                ],
+                "id": "3",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-08-05T08:28:18Z"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "http://frmbpgrongier.local:52774/csp/healthshare/fhirmypl/fhir/stu3/Patient/4",
+            "resource": {
+                "resourceType": "Patient",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "display": "MR"
+                                }
+                            ],
+                            "text": "MR"
+                        },
+                        "system": "urn:oid:1.3.6.1.4.1.21367.2010.1.2.300.2.2",
+                        "value": "200000001"
+                    }
+                ],
+                "active": true,
+                "name": [
+                    {
+                        "use": "usual",
+                        "family": "Rongier",
+                        "given": [
+                            "Guillaume"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1984-08-06",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home"
+                    }
+                ],
+                "multipleBirthBoolean": false,
+                "communication": [
+                    {
+                        "language": {
+                            "coding": [
+                                {
+                                    "code": "en",
+                                    "display": "English"
+                                }
+                            ],
+                            "text": "English"
+                        },
+                        "preferred": true
+                    }
+                ],
+                "id": "4",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-08-05T08:28:25Z"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "http://frmbpgrongier.local:52774/csp/healthshare/fhirmypl/fhir/stu3/Patient/5",
+            "resource": {
+                "resourceType": "Patient",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "display": "MR"
+                                }
+                            ],
+                            "text": "MR"
+                        },
+                        "system": "urn:oid:1.3.6.1.4.1.21367.2010.1.2.300.2.2",
+                        "value": "200000001"
+                    }
+                ],
+                "active": true,
+                "name": [
+                    {
+                        "use": "usual",
+                        "family": "Rongier",
+                        "given": [
+                            "Guillaume"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1984-08-06",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home"
+                    }
+                ],
+                "multipleBirthBoolean": false,
+                "communication": [
+                    {
+                        "language": {
+                            "coding": [
+                                {
+                                    "code": "en",
+                                    "display": "English"
+                                }
+                            ],
+                            "text": "English"
+                        },
+                        "preferred": true
+                    }
+                ],
+                "id": "5",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-08-05T08:28:26Z"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        }
+    ]
+}

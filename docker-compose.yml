@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+
+  swagger:
+    image: swaggerapi/swagger-ui:latest
+    volumes:
+    - type: bind
+      source: ./misc
+      target: /foo
+    ports:
+    - "8080:8080"
+    environment:
+      SWAGGER_JSON: /foo/fhirhl7v2demo.yaml
+
+  fhirhl7v2demo:
+    build:
+      context: .
+    image: fhirhl7v2demo:latest
+    command: --key /home/irisowner/irislicense/iris.key
+    hostname: fhirhl7v2demo
+    ports:
+    - "51776:51773" # 51773 is the superserver default port
+    - "52776:52773" # 52773 is the webserver/management portal port
+    volumes:
+    - type: bind
+      source: ./misc
+      target: /home/irisowner/irislicense
+    - type: bind
+      source: ./in
+      target: /home/irisowner/in
+    - type: bind
+      source: ./out
+      target: /home/irisowner/out
+

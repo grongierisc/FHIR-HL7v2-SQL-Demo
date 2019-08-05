@@ -1,0 +1,6 @@
+{
+    "objectscript.conn.ns": "FHIRHL7V2DEMO",
+    "objectscript.conn.password": "password",
+    "objectscript.conn.port": 52776,
+    "objectscript.conn.active": true
+}
