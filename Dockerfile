@@ -11,6 +11,6 @@ COPY misc/iris.key /usr/irissys/mgr/iris.key
 
 RUN /usr/irissys/dev/Cloud/ICM/changePassword.sh /home/irisowner/src/misc/password.txt
 
-RUN iris start IRIS && sh install.sh IRIS
+RUN iris start IRIS && sh install.sh IRIS && iris stop IRIS quietly
 
 RUN rm /usr/irissys/mgr/iris.key
