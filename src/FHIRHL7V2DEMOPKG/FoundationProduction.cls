@@ -33,7 +33,6 @@ XData ProductionDefinition
     <Setting Target="Host" Name="ResourceSchemaRoot">HS.FHIR.vSTU3.Model.Resource</Setting>
     <Setting Target="Host" Name="InactivityTimeout">0</Setting>
   </Item>
-  
   <Item Name="HS.FHIR.Repository.Operations.STU3" Category="Demo" ClassName="HS.FHIR.vSTU3.Repository.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
     <Setting Target="Host" Name="TraceOperations">*FULL*</Setting>
@@ -43,7 +42,8 @@ XData ProductionDefinition
     <Setting Target="Host" Name="TargetConfigNames">HL7toSDAProcess</Setting>
     <Setting Target="Adapter" Name="FilePath">/home/irisowner/in/</Setting>
     <Setting Target="Adapter" Name="ArchivePath">/home/irisowner/out/</Setting>
-    <Setting Target="Adapter" Name="FileSpec">*</Setting>
+    <Setting Target="Adapter" Name="FileSpec">*.txt</Setting>
+    <Setting Target="Adapter" Name="WorkPath">/usr/irissys/mgr/Temp/</Setting>
   </Item>
   <Item Name="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" Category="Demo" ClassName="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="TargetConfigName">HS.FHIR.Server.Process.STU3</Setting>

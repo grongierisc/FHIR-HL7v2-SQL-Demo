@@ -3,6 +3,8 @@ LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"
 
 RUN mkdir -p /home/irisowner/src
 
+RUN chown -R irisusr: /home/irisowner
+
 COPY . /home/irisowner/src
 
 WORKDIR /home/irisowner/src
