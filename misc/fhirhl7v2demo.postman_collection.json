@@ -51,6 +51,54 @@
 			"response": []
 		},
 		{
+			"name": "getAllPatient",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/fhir+json; charset=UTF-8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"type": "text",
+						"value": "gzip"
+					},
+					{
+						"key": "Type",
+						"type": "text",
+						"value": "Patient"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"resourceType\": \"Patient\",\n    \"identifier\": [\n        {\n            \"type\": {\n                \"coding\": [\n                    {\n                        \"code\": \"MR\",\n                        \"display\": \"MR\"\n                    }\n                ],\n                \"text\": \"MR\"\n            },\n            \"system\": \"urn:oid:1.3.6.1.4.1.21367.2010.1.2.300.2.2\",\n            \"value\": \"200000002\"\n        }\n    ],\n    \"active\": true,\n    \"name\": [\n        {\n            \"use\": \"usual\",\n            \"family\": \"CRUZ GONZALEZ\",\n            \"given\": [\n                \"Salvador\",\n                \"Guillermo\"\n            ]\n        }\n    ],\n    \"gender\": \"male\",\n    \"birthDate\": \"1984-08-07\",\n    \"deceasedBoolean\": false,\n    \"address\": [\n        {\n            \"use\": \"home\"\n        }\n    ],\n    \"multipleBirthBoolean\": false,\n    \"communication\": [\n        {\n            \"language\": {\n                \"coding\": [\n                    {\n                        \"code\": \"en\",\n                        \"display\": \"English\"\n                    }\n                ],\n                \"text\": \"English\"\n            },\n            \"preferred\": true\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52776",
+					"path": [
+						"csp",
+						"healthshare",
+						"fhirhl7v2demo",
+						"fhir",
+						"stu3",
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updatePatient",
 			"request": {
 				"method": "PUT",
