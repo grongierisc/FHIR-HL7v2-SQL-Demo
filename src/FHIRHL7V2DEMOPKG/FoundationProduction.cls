@@ -8,7 +8,7 @@ XData ProductionDefinition
   <ActorPoolSize>1</ActorPoolSize>
   <Item Name="Ens.Activity.Operation.Local" Category="Demo" ClassName="Ens.Activity.Operation.Local" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
   </Item>
-  <Item Name="HS.Test.Service" Category="Demo" ClassName="HS.Test.Service" PoolSize="0" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  <Item Name="HS.Test.Service" Category="" ClassName="HS.Test.Service" PoolSize="0" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="InactivityTimeout">0</Setting>
     <Setting Target="Host" Name="PIXmConsumerOperationsSTU3">HS.FHIR.PIXm.Consumer.Operations.STU3</Setting>
     <Setting Target="Host" Name="PDQmConsumerOperationsSTU3">HS.FHIR.PDQm.Consumer.Operations.STU3</Setting>
@@ -21,11 +21,11 @@ XData ProductionDefinition
     <Setting Target="Host" Name="FHIRVersion"></Setting>
     <Setting Target="Host" Name="FormatFHIROutput">1</Setting>
   </Item>
-  <Item Name="HS.FHIR.REST.Operation" Category="Demo" ClassName="HS.FHIR.REST.Operation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  <Item Name="HS.FHIR.REST.Operation" Category="" ClassName="HS.FHIR.REST.Operation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="MetadataClass">HS.FHIR.InteractionMetadata</Setting>
     <Setting Target="Host" Name="InactivityTimeout">0</Setting>
   </Item>
-  <Item Name="HS.Util.Trace.Operations" Category="Demo" ClassName="HS.Util.Trace.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  <Item Name="HS.Util.Trace.Operations" Category="" ClassName="HS.Util.Trace.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="InactivityTimeout">0</Setting>
   </Item>
   <Item Name="HS.FHIR.Server.Process.STU3" Category="Demo" ClassName="HS.FHIR.Server.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
@@ -36,6 +36,7 @@ XData ProductionDefinition
   <Item Name="HS.FHIR.Repository.Operations.STU3" Category="Demo" ClassName="HS.FHIR.vSTU3.Repository.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
     <Setting Target="Host" Name="TraceOperations">*FULL*</Setting>
+    <Setting Target="Host" Name="OperationProcessorClass">FHIRDemo.vSTU3.Repository.OperationProcessor</Setting>
   </Item>
   <Item Name="From_ADT" Category="Demo" ClassName="EnsLib.HL7.Service.FileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>

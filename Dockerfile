@@ -1,5 +1,4 @@
-#FROM docker.iscinternal.com/intersystems/irishealth:2019.2.0-latest
-FROM intersystems/irishealth:2019.2.0.109.0
+FROM docker.iscinternal.com/intersystems/irishealth:2019.2.0-latest
 LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"
 ENV IRIS_INSTANCE_NAME="IRIS" \
  IRIS_LICENSE_FILENAME="iris.key" \
