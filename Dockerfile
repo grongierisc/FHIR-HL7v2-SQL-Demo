@@ -1,15 +1,21 @@
-FROM docker.iscinternal.com/intersystems/irishealth:2019.2.0-latest
+#FROM docker.iscinternal.com/intersystems/irishealth:2019.2.0-latest
+FROM intersystems/irishealth:2019.2.0.109.0
 LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"
+ENV IRIS_INSTANCE_NAME="IRIS" \
+ IRIS_LICENSE_FILENAME="iris.key" \
+ IRIS_OWNER="irisowner" \
+ PASSWORD_FILENAME="password.txt"
+RUN mkdir -p /home/$IRIS_OWNER/src &&\
+ chown -R irisusr: /home/$IRIS_OWNER
 
-RUN mkdir -p /home/irisowner/src &&\
- chown -R irisusr: /home/irisowner
+COPY . /home/$IRIS_OWNER/src
 
-COPY . /home/irisowner/src
+WORKDIR /home/$IRIS_OWNER/src
 
-WORKDIR /home/irisowner/src
+COPY misc/$IRIS_LICENSE_FILENAME /usr/irissys/mgr/$IRIS_LICENSE_FILENAME
 
-COPY misc/iris.key /usr/irissys/mgr/iris.key
-
-RUN /usr/irissys/dev/Cloud/ICM/changePassword.sh /home/irisowner/src/misc/password.txt &&\
- iris start IRIS && sh install.sh IRIS && iris stop IRIS quietly &&\
- rm /usr/irissys/mgr/iris.key
+RUN /usr/irissys/dev/Cloud/ICM/changePassword.sh /home/$IRIS_OWNER/src/misc/$PASSWORD_FILENAME &&\
+ iris start $IRIS_INSTANCE_NAME && \
+ sh install.sh $IRIS_INSTANCE_NAME && \
+ iris stop $IRIS_INSTANCE_NAME quietly &&\
+ rm /usr/irissys/mgr/$IRIS_LICENSE_FILENAME
