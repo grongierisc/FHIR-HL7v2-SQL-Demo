@@ -37,10 +37,15 @@ Y
 zn "$NameSpace"
 do ##class(Ens.Director).StopProduction()
 do \$system.OBJ.ImportDir("$ClassImportDir","*.cls","cdk",.errors,1)
-set status = ##class(HS.FHIR.DTL.Util.API.ExecDefinition).SetCustomDTLPackage("HS.Local.FHIR.DTL")
+zw ##class(HS.FHIR.DTL.Util.API.ExecDefinition).SetCustomDTLPackage("HS.Local.FHIR.DTL")
 
 zw \$SYSTEM.SQL.Execute("update HS_Registry_Service.HTTP set host = 'fhirhl7v2demo'")
 zw ##class(Ens.Config.Credentials).SetCredential("HS_Services","HS_Services","$password",1)
 zw \$classmethod("Ens.Director", "SetAutoStart", "FHIRHL7V2DEMOPKG.FoundationProduction", 0)
+
+zn "%SYS"
+Set oCSPApp = ##class(Security.Applications).%OpenId("/csp/healthshare/fhirhl7v2demo/fhir/stu3", , .tSC)
+Set oCSPApp.DispatchClass="FHIRDemo.vSTU3.REST.Handler"
+Set tSC = oCSPApp.%Save()
 halt
 EOF
