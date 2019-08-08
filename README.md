@@ -4,7 +4,7 @@ Ready to use demo of an FHIR Server with :
 * HL7v2 transformation to the FHIR Server 
 * Serving binary file with $binary operation
 
-![alt text](https://raw.githubusercontent.com/grongierisc/FHIRAndHL7Demo/misc/FHIRHL7v2Demo.png)
+![alt text](https://raw.githubusercontent.com/grongierisc/FHIRAndHL7Demo/master/misc/FHIRHL7v2Demo.png)
 
 ## Prerequisites
 
