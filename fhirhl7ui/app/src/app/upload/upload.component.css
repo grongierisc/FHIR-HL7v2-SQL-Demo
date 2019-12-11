@@ -1,0 +1,79 @@
+.title {
+    color: #ACCDD0;
+}
+
+#typePut {
+    background-color: #f0b066;
+    position: relative;
+    z-index: -1;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-bottom: 0;
+    border-radius: 2px 0 0 2px;
+    color: white;
+}
+
+#typeGet {
+    background-color: #6897b6;
+    position: relative;
+    z-index: -1;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-bottom: 0;
+    border-radius: 2px 0 0 2px;
+    color: white;
+}
+
+#typePost {
+    background-color: #6cbe99;
+    position: relative;
+    z-index: -1;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-bottom: 0;
+    border-radius: 2px 0 0 2px;
+    color: white;
+}
+
+.card-header {
+    background-color: transparent;
+    border: none;
+}
+
+#headingOne {
+    padding-top: 0px;
+}
+
+.card {
+    position: relative;
+    background-color: transparent;
+    /* z-index: 10; */
+    border: 1px solid rgb(212, 212, 212);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#address {
+    width:80%
+}
+
+.input-rest {
+    border-top: 1px solid rgb(212, 212, 212);
+    color: grey;
+}
+
+input[type=text] {
+    background-color: rgb(235, 235, 235);
+    color: rgb(0, 0, 0);
+}
+
+.rest-respone {
+    margin-top : 10px;
+    /* display: none; */
+}
+
+#home-btn {
+    margin-top: 30px;
+    background-color: #ACCDD0;
+    color: aliceblue
+}

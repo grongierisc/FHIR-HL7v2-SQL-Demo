@@ -1,0 +1,317 @@
+<div class="container">
+  <div class="row title">
+    <h1>FHIR REST Client</h1>
+  </div>
+  <div class="row">
+    <div class="col rest-container">
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typePost">
+            <h4 class="mb-0">
+              POST
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#createPatient" aria-expanded="false" aria-controls="createPatient">
+                createPatient
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="createPatient">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="createPatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('createPatient', 'post')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="createPatientIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="createPatientResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typePost">
+            <h4 class="mb-0">
+              POST
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#postBinary" aria-expanded="false" aria-controls="postBinary">
+                postBinary
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="postBinary">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="postBinaryUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('postBinary', 'post')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="postBinaryIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="postBinaryResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typePost">
+            <h4 class="mb-0">
+              POST
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#createAllergyPatient1" aria-expanded="false" aria-controls="createAllergyPatient1">
+                createAllergyPatient1
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="createAllergyPatient1">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="createAllergyPatient1Url" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/AllergyIntolerance">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('createAllergyPatient1', 'post')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="createAllergyPatient1IsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="createAllergyPatient1Response"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typePost">
+            <h4 class="mb-0">
+              POST
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#getBundlePatient" aria-expanded="false" aria-controls="getBundlePatient">
+                getBundlePatient
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="getBundlePatient">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="getBundlePatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('getBundlePatient', 'post')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="getBundlePatientIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="getBundlePatientResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typePut">
+            <h4 class="mb-0">
+              PUT
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#updatePatient" aria-expanded="false" aria-controls="updatePatient">
+                updatePatient
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="updatePatient">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="updatePatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('updatePatient', 'put')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="updatePatientIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="updatePatientResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typeGet">
+            <h4 class="mb-0">
+              GET
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#getBinary" aria-expanded="false" aria-controls="getBinary">
+                getBinary
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="getBinary">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="getBinaryUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('getBinary','get')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="getBinaryIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="getBinaryResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typeGet">
+            <h4 class="mb-0">
+              GET
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#getBinaryFile" aria-expanded="false" aria-controls="getBinaryFile">
+                getBinaryFile
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="getBinaryFile">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="getBinaryFileUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1/$binary">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('getBinaryFile','get')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="getBinaryFileIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="getBinaryFileResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typeGet">
+            <h4 class="mb-0">
+              GET
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#getAllPatient" aria-expanded="false" aria-controls="getAllPatient">
+                getAllPatient
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="getAllPatient">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="getAllPatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('getAllPatient','get')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="getAllPatientIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="getAllPatientResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header row pb-0" id="headingOne">
+          <div class="col"  id="typeGet">
+            <h4 class="mb-0">
+              GET
+            </h4>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-0">
+              <a data-toggle="collapse" href="#getFullPatientView" aria-expanded="false" aria-controls="getFullPatientView">
+                getFullPatientView
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="collapse" id="getFullPatientView">
+          <div class="card-body input-rest">
+            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="getFullPatientViewUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1/$everything">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" 
+                  (click)="call_api('getFullPatientView','get')">Send</button>
+                </span>
+              </div>
+            </form>
+            <div class="rest-respone" [hidden]="getFullPatientViewIsShow">
+              <h3>Response</h3>
+              <pre class="rest-response-body" id="getFullPatientViewResponse"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  <a id="home-btn" href="#" routerLink="/" class="btn btn-outline-success"><span class="glyphicon glyphicon-arrow-left"></span> Home </a>
+</div>
