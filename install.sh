@@ -13,6 +13,8 @@ ClassImportDir=$DIR/src
 NameSpace="FHIRHL7V2DEMO"
 
 irissession $instanceName -U USER <<EOF 
+sys
+sys
 zn "HSLIB"
 do ##class(HS.HC.Util.Installer.FHIR).Install()
 $NameSpace
