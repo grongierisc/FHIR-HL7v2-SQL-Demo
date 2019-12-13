@@ -90,15 +90,20 @@ export class HomeComponent implements OnInit {
         var text = document.getElementById('send_action');
         var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/' + this.selected_file + '?IRISUserName=SuperUser&IRISPassword=password'
         // var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/' + this.selected_file 
+        text.innerHTML = ""
         this.http.get(url).subscribe((data: any) => {
+            setTimeout(function(){ 
+                var text = document.getElementById('send_action');
+                text.innerHTML = "File sent to Intersystems IRIS for Health..." 
+            }, 1000);
         }, error => {
             console.log("There was an error importing file", error);
+            setTimeout(function(){ 
+                var text = document.getElementById('send_action');
+                text.innerHTML = "Error in sending file to Intersystems IRIS for Health..." 
+            }, 1000);
         });
-        text.innerHTML = ""
-        setTimeout(function(){ 
-            var text = document.getElementById('send_action');
-            text.innerHTML = "File sent to Intersystems IRIS for Health..." 
-        }, 1000);
+        
     }
 
 }
