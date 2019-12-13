@@ -22,15 +22,21 @@
         </div>
         <div class="collapse" id="createPatient">
           <div class="card-body input-rest">
-            <form (submit)="onSubmit()"  [formGroup]="DataForm">
+            <form (submit)="onSubmit()" [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="createPatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient">
+                <input type="text" class="form-control" formControlName="createPatientUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('createPatient', 'post')">Send</button>
                 </span>
               </div>
             </form>
+            <div class="rest-respone">
+              <a (click)="showRequest('createPatient')"><h3>Request</h3></a>
+              <form [formGroup]="RequestDataForm">
+                <textarea rows=10 cols=40 class="form-control" formControlName="createPatientRequest" [hidden]="createPatientRequestIsShow"></textarea>
+              </form>
+            </div>
             <div class="rest-respone" [hidden]="createPatientIsShow">
               <h3>Response</h3>
               <pre class="rest-response-body" id="createPatientResponse"></pre>
@@ -58,7 +64,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="postBinaryUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary">
+                <input type="text" class="form-control" formControlName="postBinaryUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('postBinary', 'post')">Send</button>
@@ -92,13 +98,19 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="createAllergyPatient1Url" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/AllergyIntolerance">
+                <input type="text" class="form-control" formControlName="createAllergyPatient1Url">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('createAllergyPatient1', 'post')">Send</button>
                 </span>
               </div>
             </form>
+            <div class="rest-respone">
+              <a (click)="showRequest('createAllergyPatient1')"><h3>Request</h3></a>
+              <form [formGroup]="RequestDataForm">
+                <textarea rows=10 cols=40 class="form-control" formControlName="createAllergyPatient1Request" [hidden]="createAllergyPatient1RequestIsShow"></textarea>
+              </form>
+            </div>
             <div class="rest-respone" [hidden]="createAllergyPatient1IsShow">
               <h3>Response</h3>
               <pre class="rest-response-body" id="createAllergyPatient1Response"></pre>
@@ -126,7 +138,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="getBundlePatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/">
+                <input type="text" class="form-control" formControlName="getBundlePatientUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('getBundlePatient', 'post')">Send</button>
@@ -160,7 +172,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="updatePatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1">
+                <input type="text" class="form-control" formControlName="updatePatientUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('updatePatient', 'put')">Send</button>
@@ -194,7 +206,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="getBinaryUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1">
+                <input type="text" class="form-control" formControlName="getBinaryUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('getBinary','get')">Send</button>
@@ -228,7 +240,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="getBinaryFileUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1/$binary">
+                <input type="text" class="form-control" formControlName="getBinaryFileUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('getBinaryFile','get')">Send</button>
@@ -262,7 +274,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="getAllPatientUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient">
+                <input type="text" class="form-control" formControlName="getAllPatientUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('getAllPatient','get')">Send</button>
@@ -296,7 +308,7 @@
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="getFullPatientViewUrl" value="http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1/$everything">
+                <input type="text" class="form-control" formControlName="getFullPatientViewUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
                   (click)="call_api('getFullPatientView','get')">Send</button>
