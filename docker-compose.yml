@@ -4,8 +4,7 @@ services:
   fhirhl7v2demo:
     build:
       context: .
-    image: fhirhl7v2demo:latest
-    command: --key /home/irisowner/irislicense/iris.key
+    image: fhirhl7v2demo:iris
     hostname: fhirhl7v2demo
     ports:
     - "51776:51773" # 51773 is the superserver default port
@@ -21,3 +20,25 @@ services:
       source: ./out
       target: /home/irisowner/out
 
+  fhirhl7v2ui:
+    build: ./fhirhl7ui
+    image: fhirhl7v2demo:ui
+    init: true
+    depends_on:
+      - fhirhl7v2demo
+    ports:
+      - "4201:4200"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    command: "npm run proxy"
+    volumes:
+    - type: bind
+      source: ./fhirhl7ui/app/src/app
+      target: /home/node/app/src/app
+    - type: bind
+      source: ./sampleFiles
+      target: /home/node/app/src/assets/sampleFiles
+    - type: bind
+      source: ./in
+      target: /in

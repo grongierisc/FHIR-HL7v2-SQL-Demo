@@ -1,0 +1,7 @@
+{
+    "/csp": {
+      "target": "http://fhirhl7v2demo:52773",
+      "secure": false
+    }
+  }
+  
