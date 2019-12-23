@@ -27,16 +27,18 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form class="form_hl7_file">
-                        <select class="custom-select" id="patient" data-style="btn-info" (change)="selectChangeHandler($event)">
-                            <option value="carter">Carter</option>
-                            <option value="massie">Massie</option>
-                        </select> 
-                        <button type="button" class="btn btn-info" id="summit" (click)="HL7v2Import()">Send</button>
+                    <form class="form_hl7_file" [formGroup]="HL7fileForm">
+                        <div class="form-group custom-file">
+                            <input type="file" class="custom-file-input" id="HL7fileUpload" formControlName="HL7fileUpload" (change)="selectChangeHandler($event)">
+                            <label class="custom-file-label" id="custom-file-label" for="HL7fileUpload">Choose the HL7v2 file to import</label>
+                        </div>
+                        <div class="form-group preview">
+                            <textarea rows=10  wrap="off" class="form-control" formControlName="HL7v2filePreview" id="HL7v2filePreview" #HL7v2filePreview ></textarea>
+                        </div>
+                        <div class="form-group custom-file">
+                            <button type="button" class="btn btn-info" id="summit" (click)="HL7v2Import(HL7v2filePreview.value)">Send</button>
+                        </div>
                     </form>
-                    <div class="preview">
-                        <p id="hl7file"></p>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <p class="mr-auto" id="send_action"><p>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { FormGroup, FormControl } from '@angular/forms';
+import bsCustomFileInput from 'bs-custom-file-input'
+
 
 declare var imageMapResize: any;
-declare var fs: any;
 
 @Component({
     selector: 'app-home',
@@ -12,14 +14,21 @@ declare var fs: any;
 
 export class HomeComponent implements OnInit {
 
-    constructor(private http: HttpClient) { }
+    HL7fileForm : FormGroup;
+
+    constructor(private http: HttpClient) {
+        this.HL7fileForm = new FormGroup({
+            HL7fileUpload : new FormControl(),
+            HL7v2filePreview : new FormControl(""),
+        })
+     }
 
     ngOnInit() {
         var fhir_img = document.getElementById('fhir_img');
 
         fhir_img.style.width = "80%";
         imageMapResize()
-        this.previewfile('assets/sampleFiles/ADT_A01Carter.txt')
+        bsCustomFileInput.init()
     }
 
     // Buttons click actions
@@ -64,34 +73,34 @@ export class HomeComponent implements OnInit {
     }
 
     selectChangeHandler(event: any) {
-        //update the ui
-        this.selected_file = event.target.value;
-        var file = ''
-        if (this.selected_file == "carter") {
-            file = 'assets/sampleFiles/ADT_A01Carter.txt'
-        } else if (this.selected_file == "massie") {
-            file = 'assets/sampleFiles/ADT_A01Massie.txt'
+        var file = event.target.files[0];
+        let fileReader = new FileReader();
+        fileReader.onload = (e) => {
+            var input: HTMLInputElement = <HTMLInputElement>document.getElementById('HL7v2filePreview')
+            input.value = fileReader.result.toString();
         }
-        this.previewfile(file)
-        var text = document.getElementById('send_action');
-        text.innerHTML = ""
+        fileReader.readAsText(file);
     }
 
-    previewfile(file = "") {
-        var preview = document.getElementById('hl7file');
-        fetch(file)
-            .then(response => response.text())
-            .then(text => (text = text.replace(/(?:\r\n|\r|\n)/g, '<br />')))
-            .then(text => (preview.innerHTML = text));
-    }
-
-    HL7v2Import() {
-        console.log("clicked HL7v2Import ");
+    HL7v2Import(fileInput) {
         var text = document.getElementById('send_action');
-        var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/' + this.selected_file + '?IRISUserName=SuperUser&IRISPassword=password'
-        // var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/' + this.selected_file 
+        var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/sendfile' + '?IRISUserName=SuperUser&IRISPassword=password'
         text.innerHTML = ""
-        this.http.get(url).subscribe((data: any) => {
+        var date = Date.now();
+        var body = {
+            content : fileInput,
+            fileName : date.toString()
+        }
+        var httpOptions = {
+            headers: new HttpHeaders(
+                {
+                "Content-Type": "application/json; charset=UTF-8",
+                }
+            )
+        };
+        var stringBody = JSON.stringify(body)
+        
+        this.http.post(url,  stringBody, httpOptions).subscribe((data: any) => {
             setTimeout(function(){ 
                 var text = document.getElementById('send_action');
                 text.innerHTML = "File sent to Intersystems IRIS for Health..." 

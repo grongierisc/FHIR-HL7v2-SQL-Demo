@@ -11,12 +11,14 @@
 	margin: auto;
 }
 
+/* Background Image */
 #fhir_img {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
 }
 
+/* Footer links */
 .Button {
 	font-family: Arial;
 	font-size: 12px;
@@ -41,27 +43,8 @@
 	background-color: #abcdcf;
 }
 
-.modal-body {
-	text-align: center;
-} 
-
-.form_hl7_file {
-	margin-left: 30px;
-}
-
-#patient {
-	width: 100px;
-	height: 35px;
-	font-size: small;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-
-
-#hl7file {
+/* Modal form */
+#HL7v2filePreview {
 	font-family: 'Courier New', Courier, monospace;
-	text-align: left;
-	overflow: scroll;
 	margin-top: 10px;
 }
