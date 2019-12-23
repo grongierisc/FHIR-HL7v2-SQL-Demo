@@ -11,6 +11,8 @@ COPY . /home/$IRIS_OWNER/src
 
 WORKDIR /home/$IRIS_OWNER/src
 
+RUN chmod 777 /home/$IRIS_OWNER/src/sampleFiles
+
 COPY misc/$IRIS_LICENSE_FILENAME /usr/irissys/mgr/$IRIS_LICENSE_FILENAME
 
 RUN /usr/irissys/dev/Cloud/ICM/changePassword.sh /home/$IRIS_OWNER/src/misc/$PASSWORD_FILENAME &&\
