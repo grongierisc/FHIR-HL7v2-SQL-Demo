@@ -37,9 +37,3 @@ services:
     - type: bind
       source: ./fhirhl7ui/app/src/app
       target: /home/node/app/src/app
-    - type: bind
-      source: ./sampleFiles
-      target: /home/node/app/src/assets/sampleFiles
-    - type: bind
-      source: ./in
-      target: /in
