@@ -1,13 +1,6 @@
 #!/bin/bash
 # Usage install.sh [instanceName]
 
-die () {
-    echo >&2 "$@"
-    exit 1
-}
-
-[ "$#" -eq 1 ] || die "Usage install.sh [instanceName]"
-
 DIR=$(dirname $0)
 if [ "$DIR" = "." ]; then
 DIR=$(pwd)
@@ -20,8 +13,8 @@ ClassImportDir=$DIR/src
 NameSpace="FHIRHL7V2DEMO"
 
 irissession $instanceName -U USER <<EOF 
-SuperUser
-$password
+sys
+sys
 zn "HSLIB"
 do ##class(HS.HC.Util.Installer.FHIR).Install()
 $NameSpace

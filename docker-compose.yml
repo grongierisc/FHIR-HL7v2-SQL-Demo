@@ -5,7 +5,6 @@ services:
     build:
       context: .
     image: fhirhl7v2demo:iris
-    command: --key /home/irisowner/irislicense/iris.key
     hostname: fhirhl7v2demo
     ports:
     - "51776:51773" # 51773 is the superserver default port
@@ -14,6 +13,9 @@ services:
     - type: bind
       source: ./misc
       target: /home/irisowner/irislicense
+    - type: bind
+      source: ./sampleFiles
+      target: /home/irisowner/src/sampleFiles
     - type: bind
       source: ./in
       target: /home/irisowner/in
