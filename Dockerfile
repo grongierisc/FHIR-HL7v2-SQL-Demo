@@ -12,9 +12,6 @@ COPY . /tmp/src
 
 WORKDIR /tmp/src
 
-RUN chmod 777 /home/$IRIS_OWNER/src/sampleFiles
-
-COPY misc/$IRIS_LICENSE_FILENAME /usr/irissys/mgr/$IRIS_LICENSE_FILENAME
 RUN iris start $ISC_PACKAGE_INSTANCENAME EmergencyId=sys,sys && \
  sh install.sh $ISC_PACKAGE_INSTANCENAME && \
  /bin/echo -e "sys\nsys\n" | iris stop $ISC_PACKAGE_INSTANCENAME quietly 

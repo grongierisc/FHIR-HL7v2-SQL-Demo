@@ -13,9 +13,9 @@ services:
     - type: bind
       source: ./misc
       target: /home/irisowner/irislicense
-    - type: bind
-      source: ./sampleFiles
-      target: /home/irisowner/src/sampleFiles
+    # - type: bind
+    #   source: ./sampleFiles
+    #   target: /home/irisowner/src/sampleFiles
     - type: bind
       source: ./in
       target: /home/irisowner/in
