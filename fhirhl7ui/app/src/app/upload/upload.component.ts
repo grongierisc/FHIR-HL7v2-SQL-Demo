@@ -14,19 +14,20 @@ import { Observable } from 'rxjs';
 export class UploadComponent implements OnInit {
 
   DataForm : FormGroup;
-  createPatientIsShow = true;
-  postBinaryIsShow = true;
-  createAllergyPatient1IsShow = true;
-  getBundlePatientIsShow = true;
-  updatePatientIsShow = true;
-  getBinaryIsShow = true;
-  getBinaryFileIsShow = true;
-  getAllPatientIsShow = true;
-  getFullPatientViewIsShow = true;
+  createPatientHidden = true;
+  postBinaryHidden = true;
+  createAllergyPatient1Hidden = true;
+  getBundlePatientHidden = true;
+  updatePatientHidden = true;
+  getBinaryHidden = true;
+  getBinaryFileHidden = true;
+  getAllPatientHidden = true;
+  getFullPatientViewHidden = true;
 
   RequestDataForm : FormGroup;
-  createPatientRequestIsShow = true;
-  createAllergyPatient1RequestIsShow = true;
+  createPatientRequestHidden = true;
+  createAllergyPatient1RequestHidden = true;
+  updatePatientRequestHidden = true
 
   public jsonData:any[]
 
@@ -45,6 +46,7 @@ export class UploadComponent implements OnInit {
     this.RequestDataForm = new FormGroup({
       createPatientRequest : new FormControl(this.createPatientBody),
       createAllergyPatient1Request : new FormControl(this.createAllergyPatient1Body),
+      updatePatientRequest : new FormControl(this.updatePatientBody),
     });
   }
 
@@ -53,7 +55,7 @@ export class UploadComponent implements OnInit {
   }
 
   showRequest(name) {
-    this[name+"RequestIsShow"] = !this[name+"RequestIsShow"]
+    this[name+"RequestHidden"] = !this[name+"RequestHidden"]
   }
 
   call_api(name, method) {
@@ -78,7 +80,7 @@ export class UploadComponent implements OnInit {
       var res = JSON.stringify(error, undefined, 4)
       response.innerHTML = res
     });
-    this[name+"IsShow"] = false
+    this[name+"Hidden"] = false
   }
 
   readJson(url) {
@@ -113,7 +115,7 @@ export class UploadComponent implements OnInit {
       var res = JSON.stringify(error, undefined, 4)
       response.innerHTML = res
     });
-    this[name+"IsShow"] = false
+    this[name+"Hidden"] = false
   }
 
   http_put(name, url) {
@@ -131,7 +133,7 @@ export class UploadComponent implements OnInit {
       var res = JSON.stringify(error, undefined, 4)
       response.innerHTML = res
     });
-    this[name+"IsShow"] = false
+    this[name+"Hidden"] = false
   }
 
   httpOptionsPatient = {
