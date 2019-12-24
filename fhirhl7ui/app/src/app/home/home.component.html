@@ -36,12 +36,15 @@
                             <textarea rows=10  wrap="off" class="form-control" formControlName="HL7v2filePreview" id="HL7v2filePreview" #HL7v2filePreview ></textarea>
                         </div>
                         <div class="form-group custom-file">
-                            <button type="button" class="btn btn-info" id="summit" (click)="HL7v2Import(HL7v2filePreview.value)">Send</button>
+                            <button type="summit" class="btn btn-info" id="summit" (click)="HL7v2Import(HL7v2filePreview.value)">Send</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <p class="mr-auto" id="send_action"><p>
+                    <div class="mr-auto">
+                        <p class="mr-auto" id="send_action"><p>
+                        <button type="button" class="btn btn-info" id ="messageViewer" [hidden]="messageViewerHidden" (click)="openMessageTrace()">Open Message Trace</button>
+                    </div>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>

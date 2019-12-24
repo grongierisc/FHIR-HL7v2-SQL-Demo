@@ -15,6 +15,7 @@ declare var imageMapResize: any;
 export class HomeComponent implements OnInit {
 
     HL7fileForm : FormGroup;
+    messageViewerHidden = true;
 
     constructor(private http: HttpClient) {
         this.HL7fileForm = new FormGroup({
@@ -82,10 +83,22 @@ export class HomeComponent implements OnInit {
         fileReader.readAsText(file);
     }
 
+
+
     HL7v2Import(fileInput) {
         var text = document.getElementById('send_action');
-        var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/sendfile' + '?IRISUserName=SuperUser&IRISPassword=password'
         text.innerHTML = ""
+
+        if (fileInput == "") {
+            setTimeout(function(){ 
+                text.style.color = "#CC0000"
+                text.innerHTML = "Please select a file or fill in the textarea"
+            }, 100);
+            return
+        }
+
+        var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/sendfile' + '?IRISUserName=SuperUser&IRISPassword=password'
+        
         var date = Date.now();
         var body = {
             content : fileInput,
@@ -101,17 +114,23 @@ export class HomeComponent implements OnInit {
         var stringBody = JSON.stringify(body)
         
         this.http.post(url,  stringBody, httpOptions).subscribe((data: any) => {
-            setTimeout(function(){ 
-                var text = document.getElementById('send_action');
-                text.innerHTML = "File sent to Intersystems IRIS for Health..." 
-            }, 1000);
+            var that = this;
+            var send_output =  function(color : string, text : string, hidden : boolean) {
+                var p = document.getElementById('send_action');
+                p.style.color = "#336699"
+                p.innerHTML = "File sent to Intersystems IRIS for Health..." 
+                that.messageViewerHidden = hidden
+            }
+            setTimeout(send_output)
         }, error => {
             console.log("There was an error importing file", error);
             setTimeout(function(){ 
                 var text = document.getElementById('send_action');
+                text.style.color = "#CC0000"
                 text.innerHTML = "Error in sending file to Intersystems IRIS for Health..." 
             }, 1000);
         });
+        
         
     }
 
