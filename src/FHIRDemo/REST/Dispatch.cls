@@ -23,7 +23,7 @@ ClassMethod SendFileContent() As %Status
   
   Set content = obj.content
   Set fileName = obj.fileName
-  Set fullFileName = "/home/irisowner/src/sampleFiles/"_fileName_".txt"
+  Set fullFileName = "/tmp/src/sampleFiles/"_fileName_".txt"
   Set destination = "/home/irisowner/in"
 
   Set file=##class(%File).%New(fullFileName)
@@ -36,6 +36,13 @@ ClassMethod SendFileContent() As %Status
     {
       set sc = ##class(%File).CopyFile(fullFileName, destination) 
     }
+  }
+
+  if ($System.Status.IsError(sc)) {
+    Set %response.Status = ..#HTTP500INTERNALSERVERERROR
+		Set error = {"errormessage": "Error in path provided"}
+		Write error.%ToJSON()
+		Quit $$$OK
   }
   
   Set result={}
