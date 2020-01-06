@@ -26,8 +26,10 @@ export class UploadComponent implements OnInit {
 
   RequestDataForm : FormGroup;
   createPatientRequestHidden = true;
+  postBinaryRequestHidden = true;
   createAllergyPatient1RequestHidden = true;
-  updatePatientRequestHidden = true
+  updatePatientRequestHidden = true; 
+  
 
   public jsonData:any[]
 
@@ -45,6 +47,7 @@ export class UploadComponent implements OnInit {
     });
     this.RequestDataForm = new FormGroup({
       createPatientRequest : new FormControl(this.createPatientBody),
+      postBinaryRequest : new FormControl(this.postBinaryBody),
       createAllergyPatient1Request : new FormControl(this.createAllergyPatient1Body),
       updatePatientRequest : new FormControl(this.updatePatientBody),
     });

@@ -71,6 +71,12 @@
                 </span>
               </div>
             </form>
+            <div class="rest-respone">
+              <a (click)="showRequest('postBinary')"><h3>Request</h3></a>
+              <form [formGroup]="RequestDataForm">
+                <textarea rows=10 cols=40 class="form-control" formControlName="postBinaryRequest" [hidden]="postBinaryRequestHidden"></textarea>
+              </form>
+            </div>
             <div class="rest-respone" [hidden]="postBinaryHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="postBinaryResponse"></pre>

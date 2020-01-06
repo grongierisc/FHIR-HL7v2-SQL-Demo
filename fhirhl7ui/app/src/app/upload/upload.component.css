@@ -69,7 +69,9 @@ input[type=text] {
 
 .rest-respone {
     margin-top : 10px;
-    /* display: none; */
+    height: auto;
+    max-height: 300px;
+    overflow: auto;
 }
 
 #home-btn {
