@@ -13,9 +13,9 @@ services:
     - type: bind
       source: ./misc
       target: /home/irisowner/irislicense
-    - type: bind
-      source: ./sampleFiles
-      target: /home/irisowner/src/sampleFiles
+    # - type: bind
+    #   source: ./sampleFiles
+    #   target: /home/irisowner/src/sampleFiles
     - type: bind
       source: ./in
       target: /home/irisowner/in
@@ -39,9 +39,3 @@ services:
     - type: bind
       source: ./fhirhl7ui/app/src/app
       target: /home/node/app/src/app
-    - type: bind
-      source: ./sampleFiles
-      target: /home/node/app/src/assets/sampleFiles
-    - type: bind
-      source: ./in
-      target: /in

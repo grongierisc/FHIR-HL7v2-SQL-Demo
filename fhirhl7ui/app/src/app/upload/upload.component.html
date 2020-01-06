@@ -34,10 +34,10 @@
             <div class="rest-respone">
               <a (click)="showRequest('createPatient')"><h3>Request</h3></a>
               <form [formGroup]="RequestDataForm">
-                <textarea rows=10 cols=40 class="form-control" formControlName="createPatientRequest" [hidden]="createPatientRequestIsShow"></textarea>
+                <textarea rows=10 cols=40 class="form-control" formControlName="createPatientRequest" [hidden]="createPatientRequestHidden"></textarea>
               </form>
             </div>
-            <div class="rest-respone" [hidden]="createPatientIsShow">
+            <div class="rest-respone" [hidden]="createPatientHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="createPatientResponse"></pre>
             </div>
@@ -71,7 +71,7 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="postBinaryIsShow">
+            <div class="rest-respone" [hidden]="postBinaryHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="postBinaryResponse"></pre>
             </div>
@@ -108,10 +108,10 @@
             <div class="rest-respone">
               <a (click)="showRequest('createAllergyPatient1')"><h3>Request</h3></a>
               <form [formGroup]="RequestDataForm">
-                <textarea rows=10 cols=40 class="form-control" formControlName="createAllergyPatient1Request" [hidden]="createAllergyPatient1RequestIsShow"></textarea>
+                <textarea rows=10 cols=40 class="form-control" formControlName="createAllergyPatient1Request" [hidden]="createAllergyPatient1RequestHidden"></textarea>
               </form>
             </div>
-            <div class="rest-respone" [hidden]="createAllergyPatient1IsShow">
+            <div class="rest-respone" [hidden]="createAllergyPatient1Hidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="createAllergyPatient1Response"></pre>
             </div>
@@ -145,7 +145,7 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="getBundlePatientIsShow">
+            <div class="rest-respone" [hidden]="getBundlePatientHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="getBundlePatientResponse"></pre>
             </div>
@@ -179,7 +179,13 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="updatePatientIsShow">
+            <div class="rest-respone">
+              <a (click)="showRequest('updatePatient')"><h3>Request</h3></a>
+              <form [formGroup]="RequestDataForm">
+                <textarea rows=10 cols=40 class="form-control" formControlName="updatePatientRequest" [hidden]="updatePatientRequestHidden"></textarea>
+              </form>
+            </div>
+            <div class="rest-respone" [hidden]="updatePatientHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="updatePatientResponse"></pre>
             </div>
@@ -213,7 +219,7 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="getBinaryIsShow">
+            <div class="rest-respone" [hidden]="getBinaryHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="getBinaryResponse"></pre>
             </div>
@@ -247,7 +253,7 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="getBinaryFileIsShow">
+            <div class="rest-respone" [hidden]="getBinaryFileHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="getBinaryFileResponse"></pre>
             </div>
@@ -281,7 +287,7 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="getAllPatientIsShow">
+            <div class="rest-respone" [hidden]="getAllPatientHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="getAllPatientResponse"></pre>
             </div>
@@ -315,7 +321,7 @@
                 </span>
               </div>
             </form>
-            <div class="rest-respone" [hidden]="getFullPatientViewIsShow">
+            <div class="rest-respone" [hidden]="getFullPatientViewHidden">
               <h3>Response</h3>
               <pre class="rest-response-body" id="getFullPatientViewResponse"></pre>
             </div>
