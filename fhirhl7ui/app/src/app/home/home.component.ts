@@ -14,6 +14,10 @@ declare var imageMapResize: any;
 
 export class HomeComponent implements OnInit {
 
+    // Parameters
+    ip = window.location.hostname;
+    port = "52776"
+
     HL7fileForm : FormGroup;
     messageViewerHidden = true;
 
@@ -22,7 +26,7 @@ export class HomeComponent implements OnInit {
             HL7fileUpload : new FormControl(),
             HL7v2filePreview : new FormControl(""),
         })
-     }
+    }
 
     ngOnInit() {
         var fhir_img = document.getElementById('fhir_img');
@@ -31,11 +35,6 @@ export class HomeComponent implements OnInit {
         imageMapResize()
         bsCustomFileInput.init()
     }
-
-    // Buttons click actions
-    ip = window.location.hostname;
-    port = "52776"
-    selected_file: string = 'carter';
 
     // Open all windows
     openWindows() {
@@ -65,6 +64,14 @@ export class HomeComponent implements OnInit {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.MessageViewer.zen?$NAMESPACE=FHIRHL7V2DEMO&IRISUserName=SuperUser&IRISPassword=password')
     }
 
+    openTransformation() {
+        // this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+    }
+    
+    openProcess() {
+        // this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+    }
+
     openUX() {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
     }
@@ -82,7 +89,6 @@ export class HomeComponent implements OnInit {
         }
         fileReader.readAsText(file);
     }
-
 
 
     HL7v2Import(fileInput) {
@@ -117,8 +123,8 @@ export class HomeComponent implements OnInit {
             var that = this;
             var send_output =  function(color : string, text : string, hidden : boolean) {
                 var p = document.getElementById('send_action');
-                p.style.color = "#336699"
-                p.innerHTML = "File sent to Intersystems IRIS for Health..." 
+                p.style.color = "#3f9937"
+                p.innerHTML = "HL7v2 successfully sent to Intersystems IRIS for Health." 
                 that.messageViewerHidden = hidden
             }
             setTimeout(send_output)
@@ -127,7 +133,7 @@ export class HomeComponent implements OnInit {
             setTimeout(function(){ 
                 var text = document.getElementById('send_action');
                 text.style.color = "#CC0000"
-                text.innerHTML = "Error in sending file to Intersystems IRIS for Health..." 
+                text.innerHTML = "Error in sending HL7v2 to Intersystems IRIS for Health." 
             }, 1000);
         });
         
