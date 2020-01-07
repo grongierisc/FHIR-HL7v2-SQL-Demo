@@ -1,6 +1,8 @@
 Class FHIRDemo.REST.Dispatch Extends %CSP.REST
 {
 
+Parameter BsName = "WS_REST";
+
 Parameter CHARSET = "utf-8";
 
 Parameter HandleCorsRequest = 1;
@@ -14,41 +16,28 @@ XData UrlMap [ XMLNamespace = "http://www.fhirhl7v2demo.com/urlmap" ]
 
 ClassMethod SendFileContent() As %Status
 {
-  If '..GetJSONFromRequest(.obj) {
-		Set %response.Status = ..#HTTP400BADREQUEST
-		Set error = {"errormessage": "JSON not found"}
-		Write error.%ToJSON()
-		Quit $$$OK
-	}
-  
-  Set content = obj.content
-  Set fileName = obj.fileName
-  Set fullFileName = "/tmp/src/sampleFiles/"_fileName_".txt"
-  Set destination = "/home/irisowner/in"
-
-  Set file=##class(%File).%New(fullFileName)
-	Set sc = file.Open("WSN")
-  Set sc = file.Write(content)
-
-  if ##class(%File).Exists(fullFileName) 
-  {
-    if ##class(%File).DirectoryExists(destination) 
-    {
-      set sc = ##class(%File).CopyFile(fullFileName, destination) 
+    If '..GetJSONFromRequest(.obj) {
+        Set %response.Status = ..#HTTP400BADREQUEST
+        Set error = {"errormessage": "JSON not found"}
+        Write error.%ToJSON()
+        Quit $$$OK
     }
-  }
-
-  if ($System.Status.IsError(sc)) {
-    Set %response.Status = ..#HTTP500INTERNALSERVERERROR
-		Set error = {"errormessage": "Error in path provided"}
-		Write error.%ToJSON()
-		Quit $$$OK
-  }
-  
-  Set result={}
-  do result.%Set("Status",$s($$$ISERR(sc):$system.Status.GetOneErrorText(sc),1:"OK"))
-  write result.%ToJSON()
-  return $$$OK
+    
+    Set content = obj.content
+    set status = $$$OK
+    set tMsg = ##class(EnsLib.HL7.Message).ImportFromString(content)
+    try {
+        $$$ThrowOnError(##class(Ens.Director).CreateBusinessService(..#BsName,.tService))
+        
+        $$$ThrowOnError(tService.ProcessInput(tMsg,.output))
+    } catch(ex) {
+        set status = ex.AsStatus()
+    }
+    
+    Set result={}
+    do result.%Set("Status",$s($$$ISERR(status):$system.Status.GetOneErrorText(status),1:"OK"))
+    write result.%ToJSON()
+    return $$$OK
 }
 
 ClassMethod GetJSONFromRequest(ByRef obj As %DynamicObject) As %Boolean
