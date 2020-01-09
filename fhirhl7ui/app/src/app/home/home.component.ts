@@ -39,19 +39,6 @@ export class HomeComponent implements OnInit {
         bsCustomFileInput.init()
     }
 
-    // Open all windows
-    openWindows() {
-        var time = 1000;
-        var callNumber = 0
-        var timeout = function () { return ++callNumber * time };
-
-        setTimeout("openProduction()", timeout());
-
-        setTimeout("openMessageTrace()", timeout());
-
-        setTimeout("openUX()", timeout());
-    }
-
     // Open a window with the given URL
     window_open(url: any) {
         var winReference = window.open();
@@ -67,16 +54,25 @@ export class HomeComponent implements OnInit {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.MessageViewer.zen?$NAMESPACE=FHIRHL7V2DEMO&IRISUserName=SuperUser&IRISPassword=password')
     }
 
-    openTransformation() {
-        // this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+    openTransformationIN() {
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.FHIR.DTL.SDA3.vSTU3.Patient.Patient.dtl&IRISUserName=SuperUser&IRISPassword=password')
     }
     
-    openProcess() {
-        // this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+    openTransformationOUT() {
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.Hub.Standalone.HL7.DTL.SubTransform.PD1ToSDA3.dtl&IRISUserName=SuperUser&IRISPassword=password')
     }
 
     openUX() {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+    }
+
+    // Open all windows
+    openWindows() {
+        this.openUX()
+        this.openTransformationOUT()
+        this.openTransformationIN()
+        this.openMessageTrace()
+        this.openProduction()   
     }
 
     PDFConversion() {
