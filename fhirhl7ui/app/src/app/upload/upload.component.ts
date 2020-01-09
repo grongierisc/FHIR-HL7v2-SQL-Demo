@@ -29,39 +29,35 @@ export class UploadComponent implements OnInit {
   postBinaryRequestHidden = true;
   createAllergyPatient1RequestHidden = true;
   updatePatientRequestHidden = true; 
-  
-
-  public jsonData:any[]
 
   constructor(private http: HttpClient) {
     this.DataForm = new FormGroup({
-      createPatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient"),
-      postBinaryUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary"),
-      createAllergyPatient1Url : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/AllergyIntolerance"),
-      getBundlePatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/"),
-      updatePatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1"),
-      getBinaryUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1"),
-      getBinaryFileUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1/$binary"),
-      getAllPatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient"),
-      getFullPatientViewUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1/$everything")
+    createPatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient"),
+    postBinaryUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary"),
+    createAllergyPatient1Url : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/AllergyIntolerance"),
+    getBundlePatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/"),
+    updatePatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1"),
+    getBinaryUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1"),
+    getBinaryFileUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1/$binary"),
+    getAllPatientUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient"),
+    getFullPatientViewUrl : new FormControl("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Patient/1/$everything")
     });
     this.RequestDataForm = new FormGroup({
-      createPatientRequest : new FormControl(this.createPatientBody),
-      postBinaryRequest : new FormControl(this.postBinaryBody),
-      createAllergyPatient1Request : new FormControl(this.createAllergyPatient1Body),
-      updatePatientRequest : new FormControl(this.updatePatientBody),
+    createPatientRequest : new FormControl(this.createPatientBody),
+    postBinaryRequest : new FormControl(this.postBinaryBody),
+    createAllergyPatient1Request : new FormControl(this.createAllergyPatient1Body),
+    updatePatientRequest : new FormControl(this.updatePatientBody),
     });
   }
 
   ngOnInit() {
-    var jsonUrl = "./assets/json/fhirhl7v2demo.postman_collection.json"
   }
 
-  showRequest(name) {
+  showRequest(name:string) {
     this[name+"RequestHidden"] = !this[name+"RequestHidden"]
   }
 
-  call_api(name, method) {
+  call_api(name:string, method:string) {
     var url = this.DataForm.get(name+"Url").value
     if (method == "post") {
       this.http_post(name, url)
@@ -72,10 +68,9 @@ export class UploadComponent implements OnInit {
     }
   }
 
-  http_get(name, url) {
+  http_get(name:string, url:any) {
     var response = document.getElementById(name+"Response");
     this.http.get(url).subscribe((data: any) => {
-      console.log(data)
       var res = JSON.stringify(data, undefined, 4)
       response.innerHTML = res
     }, error => {
@@ -86,21 +81,13 @@ export class UploadComponent implements OnInit {
     this[name+"Hidden"] = false
   }
 
-  readJson(url) {
-    this.getJSON(url).subscribe(data => {
-      console.log(data);
-    });
-  }
-
-  getJSON(url): Observable<any> {
-    console.log(url)
+  getJSON(url:any): Observable<any> {
     return this.http.get(url);
   }
 
-  http_post(name, url) {
+  http_post(name:string, url:any) {
     var response = document.getElementById(name+"Response");
     var body = this.RequestDataForm.get(name+"Request").value
-    console.log(body)
     var httpOptions : any;
     if (name ==  "postBinary" ){
       httpOptions = this.httpOptionsBinary
@@ -121,7 +108,7 @@ export class UploadComponent implements OnInit {
     this[name+"Hidden"] = false
   }
 
-  http_put(name, url) {
+  http_put(name:string, url:any) {
     var response = document.getElementById(name+"Response");
     var body = this.RequestDataForm.get(name+"Request").value
     var httpOptions = this.httpOptionsPatient;
