@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService, GlobalConfig } from 'ngx-toastr';
 import bsCustomFileInput from 'bs-custom-file-input'
-
 
 declare var imageMapResize: any;
 
@@ -21,11 +21,14 @@ export class HomeComponent implements OnInit {
     HL7fileForm : FormGroup;
     messageViewerHidden = true;
 
-    constructor(private http: HttpClient) {
+    toast_options:GlobalConfig;
+
+    constructor(private http: HttpClient, private toastr: ToastrService) {
         this.HL7fileForm = new FormGroup({
             HL7fileUpload : new FormControl(),
             HL7v2filePreview : new FormControl(""),
         })
+        this.toast_options = this.toastr.toastrConfig;
     }
 
     ngOnInit() {
@@ -50,7 +53,7 @@ export class HomeComponent implements OnInit {
     }
 
     // Open a window with the given URL
-    window_open(url) {
+    window_open(url: any) {
         var winReference = window.open();
         winReference.location = url;
         winReference.parent.focus();
@@ -90,8 +93,16 @@ export class HomeComponent implements OnInit {
         fileReader.readAsText(file);
     }
 
+    open_toast(title:string, message:string, type:string) {
+        this.toast_options.positionClass = "toast-bottom-center"
+        if (type == "success") {
+            this.toastr.success(message, title);
+        } else {
+            this.toastr.error(message, title);
+        }
+    } 
 
-    HL7v2Import(fileInput) {
+    HL7v2Import(fileInput: string) {
         var text = document.getElementById('send_action');
         text.innerHTML = ""
 
@@ -124,16 +135,20 @@ export class HomeComponent implements OnInit {
             var send_output =  function(color : string, text : string, hidden : boolean) {
                 var p = document.getElementById('send_action');
                 p.style.color = "#3f9937"
-                p.innerHTML = "HL7v2 successfully sent to Intersystems IRIS for Health." 
-                that.messageViewerHidden = hidden
+                // p.innerHTML = "HL7v2 successfully sent to Intersystems IRIS for Health." 
+                that.messageViewerHidden = false
+                that.open_toast("Success", "HL7v2 successfully sent to Intersystems IRIS for Health.", "success")
             }
             setTimeout(send_output)
         }, error => {
+            var that = this;
             console.log("There was an error importing file", error);
             setTimeout(function(){ 
                 var text = document.getElementById('send_action');
                 text.style.color = "#CC0000"
-                text.innerHTML = "Error in sending HL7v2 to Intersystems IRIS for Health." 
+                // text.innerHTML = "Error in sending HL7v2 to Intersystems IRIS for Health." 
+                that.open_toast("Error in sending HL7v2 to Intersystems IRIS for Health.", error, "error")
+
             }, 1000);
         });
         
