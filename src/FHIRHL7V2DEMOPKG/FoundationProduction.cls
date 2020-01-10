@@ -46,6 +46,9 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="FileSpec">*.txt</Setting>
     <Setting Target="Adapter" Name="WorkPath">/usr/irissys/mgr/Temp/</Setting>
   </Item>
+  <Item Name="WS_REST" Category="Demo" ClassName="FHIRDemo.Service.POSTService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>
+  </Item>
   <Item Name="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" Category="Demo" ClassName="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="TargetConfigName">HS.FHIR.Server.Process.STU3</Setting>
   </Item>

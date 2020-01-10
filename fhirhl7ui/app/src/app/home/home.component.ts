@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService, GlobalConfig } from 'ngx-toastr';
 import bsCustomFileInput from 'bs-custom-file-input'
-
 
 declare var imageMapResize: any;
 
@@ -14,15 +14,22 @@ declare var imageMapResize: any;
 
 export class HomeComponent implements OnInit {
 
+    // Parameters
+    ip = window.location.hostname;
+    port = "52776"
+
     HL7fileForm : FormGroup;
     messageViewerHidden = true;
 
-    constructor(private http: HttpClient) {
+    toast_options:GlobalConfig;
+
+    constructor(private http: HttpClient, private toastr: ToastrService) {
         this.HL7fileForm = new FormGroup({
             HL7fileUpload : new FormControl(),
             HL7v2filePreview : new FormControl(""),
         })
-     }
+        this.toast_options = this.toastr.toastrConfig;
+    }
 
     ngOnInit() {
         var fhir_img = document.getElementById('fhir_img');
@@ -32,26 +39,8 @@ export class HomeComponent implements OnInit {
         bsCustomFileInput.init()
     }
 
-    // Buttons click actions
-    ip = window.location.hostname;
-    port = "52776"
-    selected_file: string = 'carter';
-
-    // Open all windows
-    openWindows() {
-        var time = 1000;
-        var callNumber = 0
-        var timeout = function () { return ++callNumber * time };
-
-        setTimeout("openProduction()", timeout());
-
-        setTimeout("openMessageTrace()", timeout());
-
-        setTimeout("openUX()", timeout());
-    }
-
     // Open a window with the given URL
-    window_open(url) {
+    window_open(url: any) {
         var winReference = window.open();
         winReference.location = url;
         winReference.parent.focus();
@@ -65,8 +54,25 @@ export class HomeComponent implements OnInit {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.MessageViewer.zen?$NAMESPACE=FHIRHL7V2DEMO&IRISUserName=SuperUser&IRISPassword=password')
     }
 
+    openTransformationIN() {
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.FHIR.DTL.SDA3.vSTU3.Patient.Patient.dtl&IRISUserName=SuperUser&IRISPassword=password')
+    }
+    
+    openTransformationOUT() {
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.Hub.Standalone.HL7.DTL.SubTransform.PD1ToSDA3.dtl&IRISUserName=SuperUser&IRISPassword=password')
+    }
+
     openUX() {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+    }
+
+    // Open all windows
+    openWindows() {
+        this.openUX()
+        this.openTransformationOUT()
+        this.openTransformationIN()
+        this.openMessageTrace()
+        this.openProduction()   
     }
 
     PDFConversion() {
@@ -83,9 +89,16 @@ export class HomeComponent implements OnInit {
         fileReader.readAsText(file);
     }
 
+    open_toast(title:string, message:string, type:string) {
+        this.toast_options.positionClass = "toast-bottom-center"
+        if (type == "success") {
+            this.toastr.success(message, title);
+        } else {
+            this.toastr.error(message, title);
+        }
+    } 
 
-
-    HL7v2Import(fileInput) {
+    HL7v2Import(fileInput: string) {
         var text = document.getElementById('send_action');
         text.innerHTML = ""
 
@@ -117,17 +130,21 @@ export class HomeComponent implements OnInit {
             var that = this;
             var send_output =  function(color : string, text : string, hidden : boolean) {
                 var p = document.getElementById('send_action');
-                p.style.color = "#336699"
-                p.innerHTML = "File sent to Intersystems IRIS for Health..." 
-                that.messageViewerHidden = hidden
+                p.style.color = "#3f9937"
+                // p.innerHTML = "HL7v2 successfully sent to Intersystems IRIS for Health." 
+                that.messageViewerHidden = false
+                that.open_toast("Success", "HL7v2 successfully sent to Intersystems IRIS for Health.", "success")
             }
             setTimeout(send_output)
         }, error => {
+            var that = this;
             console.log("There was an error importing file", error);
             setTimeout(function(){ 
                 var text = document.getElementById('send_action');
                 text.style.color = "#CC0000"
-                text.innerHTML = "Error in sending file to Intersystems IRIS for Health..." 
+                // text.innerHTML = "Error in sending HL7v2 to Intersystems IRIS for Health." 
+                that.open_toast("Error in sending HL7v2 to Intersystems IRIS for Health.", error, "error")
+
             }, 1000);
         });
         

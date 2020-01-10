@@ -69,7 +69,20 @@ input[type=text] {
 
 .rest-respone {
     margin-top : 10px;
-    /* display: none; */
+    height: auto;
+    max-height: 300px;
+    width: auto;
+    max-width: 100%;
+    overflow: auto;
+}
+
+.rest-response-body {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
 }
 
 #home-btn {

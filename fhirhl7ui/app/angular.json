@@ -26,7 +26,8 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/bootstrap-fileinput/css/fileinput.min.css"
+              "node_modules/bootstrap-fileinput/css/fileinput.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

@@ -1,3 +1,5 @@
 misc/iris.key
 .DS_Store
 **/.DS_Store
+node_modules
+.vscode
