@@ -1,5 +1,4 @@
-ARG IMAGE=docker.iscinternal.com/intersystems/irishealth:2019.2.0-latest
-ARG IMAGE=store/intersystems/irishealth-community:2019.4.0.379.0
+ARG IMAGE=store/intersystems/irishealth-community:2019.4.0.383.0
 
 FROM $IMAGE
 LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"

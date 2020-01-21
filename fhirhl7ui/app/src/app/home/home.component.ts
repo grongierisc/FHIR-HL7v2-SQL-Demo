@@ -55,11 +55,11 @@ export class HomeComponent implements OnInit {
     }
 
     openTransformationIN() {
-        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.FHIR.DTL.SDA3.vSTU3.Patient.Patient.dtl&IRISUserName=SuperUser&IRISPassword=password')
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.Hub.Standalone.HL7.DTL.SubTransform.PD1ToSDA3.dtl&IRISUserName=SuperUser&IRISPassword=password')
     }
     
     openTransformationOUT() {
-        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.Hub.Standalone.HL7.DTL.SubTransform.PD1ToSDA3.dtl&IRISUserName=SuperUser&IRISPassword=password')
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.FHIR.DTL.SDA3.vSTU3.Patient.Patient.dtl&IRISUserName=SuperUser&IRISPassword=password')
     }
 
     openUX() {
