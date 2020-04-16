@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit {
             return
         }
 
-        var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/sendfile' + '?IRISUserName=SuperUser&IRISPassword=password'
+        var url = 'http://' + window.location.hostname + ':' + this.port + '/csp/demo/rest/sendfile'
         
         var date = Date.now();
         var body = {
