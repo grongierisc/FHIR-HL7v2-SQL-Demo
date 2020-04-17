@@ -41,7 +41,7 @@ zw cspConfig.%Save()
 
 set strategy = ##class(HS.FHIRServer.API.InteractionsStrategy).GetStrategyForEndpoint(appKey)
 set config = strategy.GetServiceConfigData()
-set strategy.DebugMode = 4
+set config.DebugMode = 4
 do strategy.SaveServiceConfigData(config)
 
 
