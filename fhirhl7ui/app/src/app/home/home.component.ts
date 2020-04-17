@@ -66,6 +66,10 @@ export class HomeComponent implements OnInit {
         this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/fhirconfig/index.html#/server-config')
     }
 
+    openSQL() {
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/sys/exp/%25CSP.UI.SQL.QueryBuilderWindow.cls?$NAMESPACE=FHIRHL7V2DEMO&ClassFilter=&ColumnType=2&$ID1=SELECT%20%0A*%0AFROM HSFHIR_I0001_S.Patient&zenLaunch=1')
+    }
+
     // Open all windows
     openWindows() {
         this.openUX()
