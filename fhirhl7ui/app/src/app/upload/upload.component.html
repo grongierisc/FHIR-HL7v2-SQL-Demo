@@ -54,72 +54,32 @@
           </div>
           <div class="col-11">
             <h4 class="mb-0">
-              <a data-toggle="collapse" href="#postBinary" aria-expanded="false" aria-controls="postBinary">
-                postBinary
+              <a data-toggle="collapse" href="#createAllergyPatient" aria-expanded="false" aria-controls="createAllergyPatient">
+                createAllergyPatient
               </a>
             </h4>
           </div>
         </div>
-        <div class="collapse" id="postBinary">
+        <div class="collapse" id="createAllergyPatient">
           <div class="card-body input-rest">
             <form (submit)="onSubmit()"  [formGroup]="DataForm">
               <div class="input-group">
-                <input type="text" class="form-control" formControlName="postBinaryUrl">
+                <input type="text" class="form-control" formControlName="createAllergyPatientUrl">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" 
-                  (click)="call_api('postBinary', 'post')">Send</button>
+                  (click)="call_api('createAllergyPatient', 'post')">Send</button>
                 </span>
               </div>
             </form>
             <div class="rest-respone">
-              <a (click)="showRequest('postBinary')"><h3>Request</h3></a>
+              <a (click)="showRequest('createAllergyPatient')"><h3>Request</h3></a>
               <form [formGroup]="RequestDataForm">
-                <textarea rows=10 cols=40 class="form-control" formControlName="postBinaryRequest" [hidden]="postBinaryRequestHidden"></textarea>
+                <textarea rows=10 cols=40 class="form-control" formControlName="createAllergyPatientRequest" [hidden]="createAllergyPatientRequestHidden"></textarea>
               </form>
             </div>
-            <div class="rest-respone" [hidden]="postBinaryHidden">
+            <div class="rest-respone" [hidden]="createAllergyPatientHidden">
               <h3>Response</h3>
-              <pre class="rest-response-body" id="postBinaryResponse"></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row card">
-        <div class="card-header row pb-0" id="headingOne">
-          <div class="col"  id="typePost">
-            <h4 class="mb-0">
-              POST
-            </h4>
-          </div>
-          <div class="col-11">
-            <h4 class="mb-0">
-              <a data-toggle="collapse" href="#createAllergyPatient1" aria-expanded="false" aria-controls="createAllergyPatient1">
-                createAllergyPatient1
-              </a>
-            </h4>
-          </div>
-        </div>
-        <div class="collapse" id="createAllergyPatient1">
-          <div class="card-body input-rest">
-            <form (submit)="onSubmit()"  [formGroup]="DataForm">
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="createAllergyPatient1Url">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" 
-                  (click)="call_api('createAllergyPatient1', 'post')">Send</button>
-                </span>
-              </div>
-            </form>
-            <div class="rest-respone">
-              <a (click)="showRequest('createAllergyPatient1')"><h3>Request</h3></a>
-              <form [formGroup]="RequestDataForm">
-                <textarea rows=10 cols=40 class="form-control" formControlName="createAllergyPatient1Request" [hidden]="createAllergyPatient1RequestHidden"></textarea>
-              </form>
-            </div>
-            <div class="rest-respone" [hidden]="createAllergyPatient1Hidden">
-              <h3>Response</h3>
-              <pre class="rest-response-body" id="createAllergyPatient1Response"></pre>
+              <pre class="rest-response-body" id="createAllergyPatientResponse"></pre>
             </div>
           </div>
         </div>
