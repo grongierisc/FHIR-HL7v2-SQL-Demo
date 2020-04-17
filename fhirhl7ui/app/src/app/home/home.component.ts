@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
     }
 
     PDFConversion() {
-        this.window_open("http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/1/$binary")
+        this.window_open("http://localhost:52776/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRHL7V2DEMO&$NAMESPACE=FHIRHL7V2DEMO")
     }
 
     selectChangeHandler(event: any) {
