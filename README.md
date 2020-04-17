@@ -2,9 +2,9 @@
 
 Ready to use demo of an FHIR Server with :
 * HL7v2 transformation to the FHIR Server 
-* FHIR Server query in SQL
+* FHIR Server who can be query in SQL
 
-![alt text](https://raw.githubusercontent.com/grongierisc/FHIRAndHL7Demo/master/misc/FHIRHL7v2Demo.png)
+![alt text](https://raw.githubusercontent.com/grongierisc/FHIRAndHL7Demo/master/fhirhl7ui/app/src/assets/img/FHIRdemo.jpg)
 
 ## Prerequisites
 
