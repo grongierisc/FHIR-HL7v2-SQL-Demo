@@ -11,7 +11,7 @@ Ready to use demo of an FHIR Server with :
 Clone this repository
 
 ```
-git clone https://github.com/grongierisc/FHIRAndHL7Demo.git
+git clone https://github.com/grongierisc/FHIR-HL7v2-SQL-Demo.git
 ```
 
 Docker
