@@ -2,15 +2,13 @@
 
 Ready to use demo of an FHIR Server with :
 * HL7v2 transformation to the FHIR Server 
-* Serving binary file with $binary operation
+* FHIR Server query in SQL
 
 ![alt text](https://raw.githubusercontent.com/grongierisc/FHIRAndHL7Demo/master/misc/FHIRHL7v2Demo.png)
 
 ## Prerequisites
 
 Can be used on Intersystems IRIS For Health.
-
-For docker, add your licence key in "misc/iris.key"
 
 ### Installing
 
@@ -30,8 +28,7 @@ docker-compose up --build -d
 
 * Can use postman config in misc/fhirhl7v2demo.postman_collection.json
 
-* Use UX at http://localhost:52776/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls
+* Use UX at http://localhost:52776/csp/healthshare/FHIRHL7V2DEMO/fhirconfig/index.html#/server-config
 
 * For HL7v2 demo use sampleFiles and put example to 'in' folder
 
-* For $binary operator use : http://localhost:52776/csp/healthshare/fhirhl7v2demo/fhir/stu3/Binary/2/$binary
