@@ -59,11 +59,11 @@ export class HomeComponent implements OnInit {
     }
     
     openTransformationOUT() {
-        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.FHIR.DTL.SDA3.vSTU3.Patient.Patient.dtl&IRISUserName=SuperUser&IRISPassword=password')
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/fhirhl7v2demo/EnsPortal.DTLEditor.zen?DT=HS.FHIR.DTL.SDA3.vR4.Patient.Patient.dtl&IRISUserName=SuperUser&IRISPassword=password')
     }
 
     openUX() {
-        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/HS.Test.UI.FHIR.Main.cls')
+        this.window_open('http://' + this.ip + ':' + this.port + '/csp/healthshare/FHIRHL7V2DEMO/fhirconfig/index.html#/server-config')
     }
 
     // Open all windows
