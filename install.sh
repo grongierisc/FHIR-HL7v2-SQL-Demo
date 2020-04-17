@@ -22,7 +22,7 @@ Set metadataConfigKey = "HL7v40"
 
 //Install a Foundation namespace and change to it
 Do ##class(HS.HC.Util.Installer).InstallFoundation("$NameSpace")
-zn "$NameSpace"
+zn "$NameSpace" 
 
 // Install elements that are required for a FHIR-enabled namespace
 Do ##class(HS.FHIRServer.Installer).InstallNamespace()
@@ -36,7 +36,13 @@ zw \$classmethod("Ens.Director", "SetAutoStart", "FHIRHL7V2DEMOPKG.FoundationPro
 
 set cspConfig = ##class(HS.Util.RESTCSPConfig).URLIndexOpen(appKey)
 set cspConfig.ServiceConfigName = "HS.FHIRServer.Interop.Service"
-do cspConfig.%Save()
+set cspConfig.AllowUnauthenticatedAccess = 1
+zw cspConfig.%Save()
+
+set strategy = ##class(HS.FHIRServer.API.InteractionsStrategy).GetStrategyForEndpoint(appKey)
+set config = strategy.GetServiceConfigData()
+set strategy.DebugMode = 4
+do strategy.SaveServiceConfigData(config)
 
 
 zn "%SYS"
@@ -45,16 +51,9 @@ set props2("DispatchClass") = "FHIRDemo.REST.Dispatch"
 set props2("CookiePath") = "/csp/demo/rest/"
 set props2("Description") = "Demo REST API"
 set props2("MatchRoles") = ":%All"
+set props2("AutheEnabled") = 64
 set tSC = ##class(Security.Applications).Create("/csp/demo/rest", .props2)
 zw tSCs
 
-w "change application setting"
-set oCSPApp = ##class(Security.Applications).%OpenId("/csp/demo/rest", , .tSC)
-set oCSPApp.AutheEnabled = 64
-do oCSPApp.%Save()
-
-set oCSPApp = ##class(Security.Applications).%OpenId(appKey, , .tSC)
-set oCSPApp.AutheEnabled = 64
-do oCSPApp.%Save()
 halt
 EOF
