@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 services:
 
   fhirhl7v2demo:
@@ -26,7 +26,6 @@ services:
   fhirhl7v2ui:
     build: ./fhirhl7ui
     image: fhirhl7v2demo:ui
-    init: true
     depends_on:
       - fhirhl7v2demo
     ports:
