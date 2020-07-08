@@ -22,7 +22,7 @@ ClassMethod SendFileContent() As %Status
         Write error.%ToJSON()
         Quit $$$OK
     }
-    
+    /// TODO  ajouter une modification
     Set content = obj.content
     set status = $$$OK
     set tMsg = ##class(EnsLib.HL7.Message).ImportFromString(content)
