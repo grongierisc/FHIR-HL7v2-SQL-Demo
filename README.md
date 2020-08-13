@@ -83,5 +83,5 @@ From here you can see all the FHIR ressources in an SQL relational way.
 ## Special Thanks
 
 * https://github.com/limelissa for the UI
-* Salut florence
+
 
