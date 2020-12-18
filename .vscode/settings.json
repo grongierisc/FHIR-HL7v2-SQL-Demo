@@ -1,6 +1,11 @@
 {
-    "objectscript.conn.ns": "FHIRHL7V2DEMO",
-    "objectscript.conn.password": "password",
-    "objectscript.conn.port": 52776,
-    "objectscript.conn.active": true
+    "objectscript.conn": {
+        "ns": "FHIRHL7V2DEMO",
+        "username": "SuperUser",
+        "password": "password",
+        "docker-compose": {
+            "service": "fhirhl7v2demo"
+        },
+        "active": true
+    }
 }
