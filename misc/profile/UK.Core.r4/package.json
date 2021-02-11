@@ -1,0 +1,41 @@
+{
+  "_from": "UK.Core.r4@1.3.0",
+  "_id": "UK.Core.r4@1.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-h+RrAaD7Ua0+YWo6KwZyjnPvirwPX70J65LmKhAenuej7f+xiprztHLEByr8DZC//jNQ9+FcWAH8kpEEFXfPfg==",
+  "_location": "/UK.Core.r4",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "UK.Core.r4@1.3.0",
+    "name": "UK.Core.r4",
+    "escapedName": "UK.Core.r4",
+    "rawSpec": "1.3.0",
+    "saveSpec": null,
+    "fetchSpec": "1.3.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://packages.simplifier.net//UK.Core.r4/-/UK.Core.r4-1.3.0.tgz",
+  "_shasum": "c4ef90c8c8e612402321e591d4e6a46a6d67906c",
+  "_spec": "UK.Core.r4@1.3.0",
+  "_where": "C:\\WINDOWS\\system32",
+  "author": {
+    "name": "NHS Digital"
+  },
+  "bundleDependencies": false,
+  "canonicals": null,
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1"
+  },
+  "deprecated": false,
+  "description": "UK Core FHIR profiles and Assets",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "name": "UK.Core.r4",
+  "version": "1.3.0"
+}

@@ -1,0 +1,49 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "patient-FavoriteColor-extension",
+  "url": "http://isc.demo/fhir/StructureDefinition/patient-FavoriteColor-extension",
+  "version": "0.0.1",
+  "name": "FavoriteColor",
+  "title": "Patient's Favorite Color",
+  "status": "active",
+  "date": "2020-12-08T09:29:23+11:00",
+  "publisher": "ISC",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Patient"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Favorite Color",
+        "definition": "Patient's Favorite Color",
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://isc.demo/fhir/StructureDefinition/patient-FavoriteColor-extension"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

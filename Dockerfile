@@ -1,4 +1,4 @@
-ARG IMAGE=store/intersystems/irishealth-community:2020.2.0.196.0
+ARG IMAGE=intersystemsdc/irishealth-community:2020.4.0.524.0-zpm
 
 FROM $IMAGE
 LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"

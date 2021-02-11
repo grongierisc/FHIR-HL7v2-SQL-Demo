@@ -1,0 +1,18 @@
+{
+  "name": "isc-demo-package",
+  "title": "ISC Demo FHIR Package",
+  "version": "0.0.1",
+  "author": {
+    "name": "ISC Demo"
+  },
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "bundleDependencies": false,
+  "date": "20201208205547",
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1",
+	"UK.Core.r4": "1.3.0"
+  },
+  "deprecated": false
+}

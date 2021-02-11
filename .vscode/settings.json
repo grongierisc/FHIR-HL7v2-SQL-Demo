@@ -3,9 +3,8 @@
         "ns": "FHIRHL7V2DEMO",
         "username": "SuperUser",
         "password": "password",
-        "docker-compose": {
-            "service": "fhirhl7v2demo"
-        },
+        "host": "localhost",
+        "port": 52776,
         "active": true
     }
 }

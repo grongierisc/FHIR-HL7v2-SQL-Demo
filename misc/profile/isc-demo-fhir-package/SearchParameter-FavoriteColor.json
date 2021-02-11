@@ -1,0 +1,20 @@
+{
+	"resourceType": "SearchParameter",
+	"id": "FavoriteColor",
+	"url": "http://isc.demo/fhir/SearchParameter/FavoriteColor",
+	"version": "0.0.1",
+	"name": "FavoriteColor",
+	"status": "active",
+	"date": "2020-12-18T05:21:55+00:00",
+	"publisher": "ISC Demo",
+	"description": "Searches on the patient-FavoriteColor-extention field of Patient.",
+	"code": "FavoriteColor",
+	"base": [
+		"Patient"
+	],
+	"type": "string",
+	"expression": "Patient.extension.where(url='http://isc.demo/fhir/StructureDefinition/patient-FavoriteColor-extension').value",
+	"comparator": [
+		"eq"
+	]
+}

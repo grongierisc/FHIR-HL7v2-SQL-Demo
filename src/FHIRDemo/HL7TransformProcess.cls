@@ -14,8 +14,17 @@ Method OnRequest(pRequest As EnsLib.HL7.Message, Output pResponse As Ens.Respons
 {
 	set tSC = $$$OK
 	try {
-         set tSC = ##class(HS.Gateway.HL7.HL7ToSDA3).GetSDA(pRequest,.tSDA)
-         set tSC = ..SendRequestSync(..TargetConfigName,##class(Ens.StreamContainer).%New(tSDA),.pResponse)
+		$$$ThrowOnError(##class(HS.Gateway.HL7.HL7ToSDA3).GetSDA(pRequest,.tSDA))
+		$$$LOGINFO(tSDA.Read())
+
+		Set tQuickStream = ##class(HS.SDA3.QuickStream).%New()
+		$$$ThrowOnError(tQuickStream.CopyFrom(tSDA))
+		
+		Set tResponse = ##class(HS.Message.XMLMessage).%New()
+		Do tResponse.AdditionalInfo.SetAt(tQuickStream.%Id(),"QuickStreamId")
+		Do tResponse.AdditionalInfo.SetAt(pRequest.IdentifierGet(),"PatientResourceId")
+	
+        Set tSC = ..SendRequestSync(..TargetConfigName,tResponse,.pResponse)
 	} catch ex {
 		set tSC = ex.AsStatus()
 	}
