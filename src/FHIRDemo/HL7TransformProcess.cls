@@ -22,7 +22,7 @@ Method OnRequest(pRequest As EnsLib.HL7.Message, Output pResponse As Ens.Respons
 		
 		Set tResponse = ##class(HS.Message.XMLMessage).%New()
 		Do tResponse.AdditionalInfo.SetAt(tQuickStream.%Id(),"QuickStreamId")
-		Do tResponse.AdditionalInfo.SetAt(pRequest.IdentifierGet(),"PatientResourceId")
+		Do tResponse.AdditionalInfo.SetAt($P(pRequest.GetValueAt("PID:3:1"),"^"),"PatientResourceId")
 	
         Set tSC = ..SendRequestSync(..TargetConfigName,tResponse,.pResponse)
 	} catch ex {
