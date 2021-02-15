@@ -20,8 +20,8 @@ XData ProductionDefinition
     <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>
   </Item>
   <Item Name="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" Category="Demo" ClassName="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Host" Name="TargetConfigName">HS.FHIRServer.Interop.Operation</Setting>
-    <Setting Target="Host" Name="FHIREndpoint">/fhirhl7v2demo/fhir/r4</Setting>
+    <Setting Target="Host" Name="TargetConfigName">HS.FHIRServer.Interop.HTTPOperation</Setting>
+    <Setting Target="Host" Name="FHIREndpoint"></Setting>
     <Setting Target="Host" Name="FHIRMetadataSet">HL7v40 / Base HL7 Metadata for FHIR R4 (4.0.1)</Setting>
     <Setting Target="Host" Name="FormatFHIROutput">1</Setting>
     <Setting Target="Host" Name="OutputToQuickStream">1</Setting>
@@ -34,6 +34,15 @@ XData ProductionDefinition
   <Item Name="HS.FHIRServer.Interop.Operation" Category="" ClassName="HS.FHIRServer.Interop.Operation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
   </Item>
   <Item Name="HS.Util.Trace.Operations" Category="" ClassName="HS.Util.Trace.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  </Item>
+  <Item Name="TCP_IN_HL7" Category="" ClassName="EnsLib.HL7.Service.TCPService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>
+    <Setting Target="Adapter" Name="Port">22222</Setting>
+    <Setting Target="Host" Name="Framing">MLLP</Setting>
+    <Setting Target="Host" Name="TargetConfigNames">HL7toSDAProcess</Setting>
+  </Item>
+  <Item Name="HS.FHIRServer.Interop.HTTPOperation" Category="" ClassName="HS.FHIRServer.Interop.HTTPOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="ServiceName">HAPI</Setting>
   </Item>
 </Production>
 }

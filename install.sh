@@ -44,6 +44,14 @@ set config = strategy.GetServiceConfigData()
 set config.DebugMode = 4
 do strategy.SaveServiceConfigData(config)
 
+// Configuration of HAPI Endpoint
+set hapiRegistery = ##class(HS.Registry.Service.HTTP).%New()
+set hapiRegistery.Type = "HTTP"
+set hapiRegistery.Name = "HAPI"
+set hapiRegistery.Host = "hapi"
+set hapiRegistery.Port = 8080
+set hapiRegistery.URL = "/fhir/"
+zw hapiRegistery.%Save()
 
 zn "%SYS"
 set props2("NameSpace") = "$NameSpace"

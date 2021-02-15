@@ -7,6 +7,7 @@ services:
     image: fhirhl7v2demo:iris
     hostname: fhirhl7v2demo
     ports:
+    - 22222:22222 # TCP Port HL7 in
     - "51773" # 51773 is the superserver default port
     - "52776:52773" # 52773 is the webserver/management portal port
     volumes:
@@ -38,3 +39,30 @@ services:
     - type: bind
       source: ./fhirhl7ui/app/src/app
       target: /home/node/app/src/app
+
+  hapi:
+    container_name: hapi
+    hostname: hapi
+    image: hapiproject/hapi:latest
+    ports:
+      - "8080:8080"
+    environment:
+      profiles.active: r4
+      spring.datasource.url: 'jdbc:postgresql://db:5432/hapi'
+      spring.datasource.username: admin
+      spring.datasource.password: admin
+      spring.datasource.driverClassName: org.postgresql.Driver
+      # - "tester.server_address=http://localhost:8080/fhir"
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: hapi
+    # not needed for networking between containers but here for troubleshooting
+    ports:
+      - "5432:5432"
