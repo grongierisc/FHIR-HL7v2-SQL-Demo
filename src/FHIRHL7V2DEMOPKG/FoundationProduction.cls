@@ -40,6 +40,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="Port">22222</Setting>
     <Setting Target="Host" Name="Framing">MLLP</Setting>
     <Setting Target="Host" Name="TargetConfigNames">HL7toSDAProcess</Setting>
+    <Setting Target="Adapter" Name="StayConnected">10</Setting>
   </Item>
   <Item Name="HS.FHIRServer.Interop.HTTPOperation" Category="" ClassName="HS.FHIRServer.Interop.HTTPOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="ServiceName">HAPI</Setting>
