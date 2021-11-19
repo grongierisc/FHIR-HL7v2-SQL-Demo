@@ -7,7 +7,8 @@ services:
     image: fhirhl7v2demo:iris
     hostname: fhirhl7v2demo
     ports:
-    - "51773" # 51773 is the superserver default port
+#    - "51773" # 51773 is the superserver default port
+    - "1972" # 1972 is the new superserver default port
     - "52776:52773" # 52773 is the webserver/management portal port
     volumes:
     - type: bind
