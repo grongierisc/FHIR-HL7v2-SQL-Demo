@@ -1,5 +1,5 @@
 ARG IMAGE=intersystemsdc/irishealth-community:2020.4.0.524.0-zpm
-ARG intersystemsdc/irishealth-community:latest
+ARG IMAGE=intersystemsdc/irishealth-community:latest
 FROM $IMAGE
 LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"
 
