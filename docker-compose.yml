@@ -6,6 +6,7 @@ services:
       context: .
     image: fhirhl7v2demo:iris
     hostname: fhirhl7v2demo
+    command: --check-caps false
     ports:
 #    - "51773" # 51773 is the superserver default port
     - "1972" # 1972 is the new superserver default port
